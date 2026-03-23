@@ -1,0 +1,70 @@
+---
+const year = new Date().getFullYear();
+const links = [
+  { label: "GITHUB", url: "https://github.com/jed-3rd" },
+  { label: "LINKEDIN", url: "https://linkedin.com/in/jed-3rd" },
+];
+---
+
+<footer class="footer" role="contentinfo">
+  <div class="footer__inner">
+    <div class="footer__copy">
+      &copy; {year} Jed Tonti Denbow. ENGINEERED WITH ASTRO FOR PERFORMANCE.
+    </div>
+    <div class="footer__links">
+      {links.map((link) => <a class="footer__link" href={link.url} target="_blank" rel="noopener noreferrer">{link.label}</a>)}
+    </div>
+  </div>
+</footer>
+
+<style>
+  .footer {
+    background-color: #081420;
+    width: 100%;
+    padding: 3rem 0;
+    border-top: 1px solid rgba(204, 214, 246, 0.1);
+  }
+
+  .footer__inner {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-between;
+    max-width: 80rem;
+    margin: 0 auto;
+    padding: 0 2rem;
+    gap: 1.5rem;
+  }
+
+  .footer__copy {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #ccd6f6;
+  }
+
+  .footer__links {
+    display: flex;
+    gap: 2rem;
+  }
+
+  .footer__link {
+    font-family: "Inter", sans-serif;
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: rgba(204, 214, 246, 0.6);
+    transition: color 0.3s ease;
+  }
+
+  .footer__link:hover {
+    color: #f9abff;
+  }
+
+  @media (min-width: 768px) {
+    .footer__inner {
+      flex-direction: row;
+    }
+  }
+</style>

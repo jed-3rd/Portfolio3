@@ -1,0 +1,211 @@
+---
+---
+
+<section class="hero" aria-label="Introduction">
+  <div class="hero__content">
+    <div class="moon-wrapper" role="img" aria-label="Animated moon phase cycle">
+      <div class="moon">
+        <div class="moon__shadow"></div>
+      </div>
+    </div>
+    <p class="hero__role">Senior Systems Engineer</p>
+    <h1 class="hero__heading">
+      Hi, Jed here.<br />
+      <span class="hero__heading-sub">I like to build things.</span>
+    </h1>
+    <p class="hero__description">
+      Crafting high-performance distributed systems and sophisticated user
+      interfaces at the intersection of design and engineering.
+    </p>
+  </div>
+  <a class="hero__scroll" href="#experience" aria-label="Scroll to experience">
+    <span class="material-symbols-outlined hero__scroll-icon">expand_more</span>
+  </a>
+</section>
+
+<style>
+  .hero {
+    min-height: 100vh;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+    padding: 0 2rem;
+    max-width: 80rem;
+    margin: 0 auto;
+    position: relative;
+  }
+
+  .hero__content {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  /* Waxing (0→50%): shadow slides right, revealing left crescent.
+     At 50% (full moon), shadow is off-screen right.
+     Jump to off-screen left (invisible — both positions hidden).
+     Waning (50→100%): shadow slides right from far left,
+     crescent shrinks on right side back to new moon. */
+  @keyframes moon-phase {
+    0%, 100% {
+      transform: translateX(0);
+    }
+    49.99% {
+      transform: translateX(220px);
+    }
+    50.01% {
+      transform: translateX(-220px);
+    }
+  }
+
+  @keyframes moon-glow {
+    0%, 100% {
+      filter: drop-shadow(0 0 0 transparent);
+    }
+    25%, 75% {
+      filter: drop-shadow(0 0 12px rgba(199, 147, 139, 0.25));
+    }
+    50% {
+      filter: drop-shadow(0 0 30px rgba(199, 147, 139, 0.5))
+             drop-shadow(0 0 80px rgba(199, 147, 139, 0.15));
+    }
+  }
+
+  @keyframes moon-brightness {
+    0%, 100% { opacity: 0.05; }
+    10%, 90% { opacity: 0.4; }
+    25%, 75% { opacity: 0.7; }
+    40%, 60% { opacity: 0.9; }
+    50% { opacity: 1; }
+  }
+
+  .moon-wrapper {
+    margin-bottom: 3rem;
+    animation: 16s moon-glow ease-in-out infinite;
+  }
+
+  .moon {
+    width: 200px;
+    height: 200px;
+    border-radius: 50%;
+    position: relative;
+    overflow: hidden;
+    background-color: #c7938b;
+    animation: 16s moon-brightness ease-in-out infinite;
+  }
+
+  /* Slightly oversized dark circle that slides across to create the crescent */
+  .moon__shadow {
+    position: absolute;
+    top: -5px;
+    left: -5px;
+    width: 210px;
+    height: 210px;
+    border-radius: 50%;
+    background-color: #081420;
+    animation: 16s moon-phase ease-in-out infinite;
+  }
+
+  .hero__role {
+    font-family: var(--font-label);
+    color: var(--primary);
+    letter-spacing: 0.3em;
+    font-size: 0.875rem;
+    text-transform: uppercase;
+  }
+
+  .hero__heading {
+    font-size: 3.75rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    letter-spacing: -0.025em;
+    color: var(--on-background);
+    line-height: 1;
+  }
+
+  .hero__heading-sub {
+    color: var(--tertiary-40);
+    font-style: italic;
+    font-weight: 300;
+  }
+
+  .hero__description {
+    max-width: 36rem;
+    color: var(--tertiary);
+    font-size: 1.125rem;
+    line-height: 1.75;
+    padding-top: 1.5rem;
+    font-family: var(--font-body);
+  }
+
+  .hero__cta {
+    padding-top: 2.5rem;
+    display: flex;
+    gap: 1.5rem;
+  }
+
+  .hero__link {
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--primary);
+    letter-spacing: 0.1em;
+    font-size: 0.875rem;
+  }
+
+  .hero__arrow {
+    transition: transform 0.2s ease;
+  }
+
+  .hero__link:hover .hero__arrow {
+    transform: translateX(0.25rem);
+  }
+
+  @keyframes bounce-down {
+    0%, 100% { transform: translateY(0); }
+    50% { transform: translateY(6px); }
+  }
+
+  .hero__scroll {
+    position: absolute;
+    bottom: 2rem;
+    left: 50%;
+    transform: translateX(-50%);
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    color: var(--tertiary-40);
+    transition: color 0.2s ease;
+    text-decoration: none;
+  }
+
+  .hero__scroll:hover {
+    color: var(--primary);
+  }
+
+  .hero__scroll-icon {
+    font-size: 2rem;
+    animation: 2s bounce-down ease-in-out infinite;
+  }
+
+  @media (max-width: 768px) {
+    .moon {
+      width: 128px;
+      height: 128px;
+    }
+    .moon__shadow {
+      width: 138px;
+      height: 138px;
+      top: -5px;
+      left: -5px;
+    }
+  }
+
+  @media (min-width: 768px) {
+    .hero__heading {
+      font-size: 6rem;
+    }
+  }
+</style>

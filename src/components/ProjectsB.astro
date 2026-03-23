@@ -1,0 +1,256 @@
+---
+import { projects } from "../data/projects";
+---
+
+<section class="immersive" id="projects" aria-label="Personal projects">
+  <div class="section-container">
+    <div class="section-header-split">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="section-slash">/</span>
+        <h2 class="section-title">Personal Projects</h2>
+      </div>
+    </div>
+
+    <div class="immersive__list">
+      {
+        projects.map((project) => (
+          <article class="immersive__card">
+            {/* Background visual */}
+            <div class="immersive__bg">
+              <div
+                class="immersive__gradient"
+                style={`background: linear-gradient(${project.gradientDir}, var(--surface) 30%, transparent 70%);`}
+              />
+              <div class="immersive__bg-icon-wrap" aria-hidden="true">
+                <span
+                  class="material-symbols-outlined immersive__bg-icon"
+                  style={`--icon-rotation: ${project.iconRotation};`}
+                >
+                  {project.bgIcon}
+                </span>
+              </div>
+            </div>
+
+            {/* External link */}
+            <a
+              class="immersive__link"
+              href={project.link}
+              target="_blank"
+              rel="noopener noreferrer"
+              title={project.linkType === "github" ? "View on GitHub" : "Visit site"}
+            >
+              <span class="material-symbols-outlined">
+                {project.linkType === "github" ? "code" : "open_in_new"}
+              </span>
+              <span class="immersive__link-label">
+                {project.linkType === "github" ? "GitHub" : "Live Site"}
+              </span>
+            </a>
+
+            {/* Content overlay */}
+            <div class="immersive__content">
+              <div class="immersive__header">
+                <span class="material-symbols-outlined immersive__icon">
+                  {project.icon}
+                </span>
+                <h3 class="immersive__title">{project.title}</h3>
+                <div class="immersive__tags">
+                  {project.tags.map((tag) => (
+                    <span class="tag-bordered">{tag}</span>
+                  ))}
+                </div>
+              </div>
+
+              <p class="immersive__desc">{project.description}</p>
+
+              <div class="immersive__columns">
+                <div>
+                  <p class="immersive__label">Challenge</p>
+                  <p class="immersive__text">{project.challenge}</p>
+                </div>
+                <div>
+                  <p class="immersive__label">Solution</p>
+                  <p class="immersive__text">{project.solution}</p>
+                </div>
+              </div>
+
+              <div class="immersive__strategy">
+                <p class="immersive__label">Technical Strategy</p>
+                <p class="immersive__text">{project.strategy}</p>
+              </div>
+            </div>
+          </article>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .immersive {
+    padding: 8rem 2rem;
+    background-color: var(--surface);
+  }
+
+  .immersive__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .immersive__card {
+    position: relative;
+    border-radius: 0.25rem;
+    overflow: hidden;
+    min-height: 600px;
+    display: flex;
+    flex-direction: column;
+    justify-content: flex-end;
+    border: 1px solid var(--outline-variant-10);
+  }
+
+  .immersive__bg {
+    position: absolute;
+    inset: 0;
+    background-color: var(--surface-container);
+  }
+
+  .immersive__gradient {
+    position: absolute;
+    inset: 0;
+    z-index: 1;
+  }
+
+  .immersive__bg-icon-wrap {
+    position: absolute;
+    inset: 0;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .immersive__bg-icon {
+    color: var(--primary-10);
+    font-size: 20rem;
+    transform: rotate(var(--icon-rotation));
+    opacity: 0.5;
+  }
+
+  .immersive__link {
+    position: absolute;
+    top: 1.25rem;
+    right: 1.25rem;
+    z-index: 3;
+    display: flex;
+    align-items: center;
+    gap: 0.5rem;
+    padding: 0.5rem 1rem;
+    background: var(--background-80);
+    backdrop-filter: blur(12px);
+    border: 1px solid var(--outline-variant-20);
+    border-radius: 0.125rem;
+    color: var(--on-background);
+    font-family: var(--font-label);
+    font-size: 10px;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    text-decoration: none;
+    transition: color 0.2s ease, border-color 0.2s ease;
+  }
+
+  .immersive__link:hover {
+    color: var(--primary);
+    border-color: var(--primary-20);
+  }
+
+  .immersive__link .material-symbols-outlined {
+    font-size: 1.125rem;
+  }
+
+  .immersive__content {
+    position: relative;
+    z-index: 2;
+    padding: 3rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+  }
+
+  .immersive__header {
+    display: flex;
+    flex-wrap: wrap;
+    align-items: center;
+    gap: 1rem;
+  }
+
+  .immersive__icon {
+    font-size: 2rem;
+    color: var(--primary);
+    padding: 0.75rem;
+    background: var(--primary-5);
+    border-radius: 0.125rem;
+    backdrop-filter: blur(8px);
+  }
+
+  .immersive__title {
+    font-size: 2.5rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--on-background);
+    flex: 1;
+  }
+
+  .immersive__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+  }
+
+  .immersive__desc {
+    color: var(--tertiary);
+    font-size: 1.125rem;
+    line-height: 1.75;
+    max-width: 48rem;
+  }
+
+  .immersive__columns {
+    display: grid;
+    grid-template-columns: 1fr;
+    gap: 2rem;
+    padding-top: 1rem;
+    border-top: 1px solid var(--outline-variant-20);
+  }
+
+  .immersive__strategy {
+    padding: 1.5rem;
+    background: var(--background-80);
+    backdrop-filter: blur(12px);
+    border-left: 3px solid var(--primary);
+    border-radius: 0.125rem;
+  }
+
+  .immersive__label {
+    font-size: 10px;
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: 0.2em;
+    color: var(--secondary);
+    margin-bottom: 0.75rem;
+  }
+
+  .immersive__text {
+    color: var(--tertiary-70);
+    font-size: 0.875rem;
+    line-height: 1.75;
+  }
+
+  @media (min-width: 768px) {
+    .immersive__columns {
+      grid-template-columns: 1fr 1fr;
+    }
+
+    .immersive__title {
+      flex: unset;
+    }
+  }
+</style>

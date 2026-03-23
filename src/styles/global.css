@@ -1,0 +1,224 @@
+/* ===== CSS Custom Properties ===== */
+:root {
+  --tertiary: #ccd6f6;
+  --on-background: #d7e4f4;
+  --primary: #44f37e;
+  --primary-5: rgba(68, 243, 126, 0.05);
+  --primary-10: rgba(68, 243, 126, 0.1);
+  --primary-20: rgba(68, 243, 126, 0.2);
+  --primary-30: rgba(68, 243, 126, 0.3);
+  --secondary: #f9abff;
+  --surface: #081420;
+  --surface-container: #15212c;
+  --surface-container-low: #111d28;
+  --surface-container-high: #1f2b37;
+  --background: #081420;
+  --outline-variant: #3c4a3c;
+  --outline-variant-10: rgba(60, 74, 60, 0.1);
+  --outline-variant-20: rgba(60, 74, 60, 0.2);
+  --outline-variant-30: rgba(60, 74, 60, 0.3);
+  --tertiary-40: rgba(204, 214, 246, 0.4);
+  --tertiary-50: rgba(204, 214, 246, 0.5);
+  --tertiary-60: rgba(204, 214, 246, 0.6);
+  --tertiary-70: rgba(204, 214, 246, 0.7);
+  --surface-container-30: rgba(21, 33, 44, 0.3);
+  --surface-container-low-50: rgba(17, 29, 40, 0.5);
+  --background-80: rgba(8, 20, 32, 0.8);
+
+  --font-headline: "Space Grotesk", sans-serif;
+  --font-body: "Inter", sans-serif;
+  --font-label: "Inter", sans-serif;
+}
+
+/* ===== Reset & Base ===== */
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--background);
+  color: var(--on-background);
+  font-family: var(--font-body);
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
+}
+
+::selection {
+  background: var(--primary-30);
+  color: var(--primary);
+}
+
+a {
+  text-decoration: none;
+  color: inherit;
+}
+
+:focus-visible {
+  outline: 2px solid var(--primary);
+  outline-offset: 2px;
+}
+
+img {
+  max-width: 100%;
+  display: block;
+}
+
+/* ===== Material Symbols ===== */
+.material-symbols-outlined {
+  font-variation-settings: "FILL" 0, "wght" 400, "GRAD" 0, "opsz" 24;
+  display: inline-block;
+  vertical-align: middle;
+}
+
+/* ===== Shared Section Styles ===== */
+.section-container {
+  max-width: 80rem;
+  margin-left: auto;
+  margin-right: auto;
+}
+
+.section-padding {
+  padding: 8rem 2rem;
+}
+
+.section-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 5rem;
+}
+
+.section-header-split {
+  display: flex;
+  flex-direction: column;
+  gap: 1.5rem;
+  margin-bottom: 5rem;
+}
+
+.section-slash {
+  color: var(--primary);
+  font-family: var(--font-headline);
+  font-size: 1.875rem;
+}
+
+.section-title {
+  font-size: 2.25rem;
+  font-family: var(--font-headline);
+  font-weight: 700;
+  color: var(--on-background);
+  letter-spacing: -0.025em;
+  text-transform: uppercase;
+}
+
+.section-subtitle {
+  color: var(--tertiary-60);
+  font-family: var(--font-label);
+  font-size: 0.75rem;
+  letter-spacing: 0.15em;
+  text-transform: uppercase;
+}
+
+/* ===== Category Header ===== */
+.category-header {
+  font-family: var(--font-headline);
+  font-size: 0.75rem;
+  text-transform: uppercase;
+  letter-spacing: 0.3em;
+  color: var(--tertiary-50);
+  margin-bottom: 2rem;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+}
+
+.category-dot {
+  width: 0.5rem;
+  height: 0.5rem;
+  border-radius: 50%;
+  display: inline-block;
+}
+
+.category-dot--primary {
+  background-color: var(--primary);
+}
+
+.category-dot--secondary {
+  background-color: var(--secondary);
+}
+
+/* ===== Skill Item ===== */
+.skill-name {
+  font-family: var(--font-headline);
+  font-size: 1.125rem;
+  font-weight: 700;
+  color: var(--on-background);
+}
+
+.skill-desc {
+  font-size: 0.75rem;
+  color: var(--tertiary-60);
+  margin-top: 0.25rem;
+}
+
+/* ===== Tag Styles ===== */
+.tag-primary {
+  color: var(--primary);
+  font-size: 10px;
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+}
+
+.tag-bordered {
+  font-size: 10px;
+  font-family: var(--font-label);
+  text-transform: uppercase;
+  letter-spacing: 0.1em;
+  color: var(--primary);
+  border: 1px solid var(--primary-20);
+  background: var(--primary-5);
+  padding: 0.25rem 0.75rem;
+}
+
+.tool-tag {
+  color: var(--on-background);
+  font-size: 0.875rem;
+  border: 1px solid var(--outline-variant-20);
+  padding: 0.5rem 1rem;
+  border-radius: 0.125rem;
+  background: var(--surface-container-low-50);
+}
+
+/* ===== Expertise Bar (unused currently but preserved) ===== */
+.expertise-bar {
+  height: 2px;
+  background: var(--primary-10);
+  position: relative;
+  overflow: hidden;
+}
+
+.expertise-progress {
+  position: absolute;
+  left: 0;
+  top: 0;
+  height: 100%;
+  background: var(--primary);
+  box-shadow: 0 0 10px var(--primary-30);
+}
+
+/* ===== Responsive ===== */
+@media (min-width: 768px) {
+  .section-header-split {
+    flex-direction: row;
+    align-items: flex-end;
+    justify-content: space-between;
+  }
+}

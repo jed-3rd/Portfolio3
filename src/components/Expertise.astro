@@ -1,0 +1,198 @@
+---
+const year = new Date().getFullYear();
+
+const languages = [
+  { name: "TypeScript", desc: "Full-stack Development" },
+  { name: "Go (Golang)", desc: "Concurrency & Performance" },
+  { name: "Python", desc: "ML & Automation" },
+  { name: "Rust", desc: "Systems Programming" },
+  { name: "SASS", desc: "Styling & Design Systems" },
+  { name: "Bash", desc: "Scripting & Tooling" },
+];
+
+const frameworks = [
+  { name: "React", desc: "Component Architecture" },
+  { name: "Angular", desc: "Enterprise Apps" },
+  { name: "Astro", desc: "Static & Hybrid Sites" },
+  { name: "Remix", desc: "Full-stack Routing" },
+  { name: "Node.js", desc: "Scalable I/O" },
+  { name: "Flask", desc: "Python Web Services" },
+];
+
+const dataAndML = [
+  { name: "SQL", desc: "Postgres / Relational DBs" },
+  { name: "NoSQL", desc: "MongoDB / Document Stores" },
+  { name: "TensorFlow", desc: "Deep Learning" },
+  { name: "PyTorch", desc: "Neural Networks" },
+  { name: "Pandas", desc: "Data Analysis" },
+  { name: "Prompt Engineering", desc: "LLM Integration" },
+];
+
+const infrastructure = [
+  { name: "AWS", desc: "Cloud Infrastructure" },
+  { name: "Docker", desc: "Containerization" },
+  { name: "Terraform", desc: "Infrastructure as Code" },
+  { name: "Firebase", desc: "Serverless & Realtime" },
+  { name: "Redis", desc: "Caching & Queues" },
+  { name: "GitHub Actions", desc: "CI/CD Pipelines" },
+];
+
+const tools = [
+  "GraphQL",
+  "REST APIs",
+  "Webhooks",
+  "OAuth",
+  "Git",
+  "Liquid",
+  "MaterialUI",
+  "Atlassian Platform",
+  "Jupyter",
+  "Shopify",
+  "Figma",
+  "Stripe",
+  "Strapi",
+  "Tailwind",
+];
+---
+
+<section class="expertise" id="skills" aria-label="Technical expertise">
+  <div class="section-container">
+    <div class="section-header-split">
+      <div class="section-header" style="margin-bottom: 0;">
+        <span class="section-slash">/</span>
+        <h2 class="section-title">Expertise</h2>
+      </div>
+      <p class="section-subtitle">Modern Stack {year}</p>
+    </div>
+
+    <div class="expertise__groups">
+      <!-- Languages -->
+      <div>
+        <h3 class="category-header">
+          <span class="category-dot category-dot--primary"></span> Languages
+        </h3>
+        <div class="expertise__grid expertise__grid--6">
+          {
+            languages.map((lang) => (
+              <div>
+                <h4 class="skill-name">{lang.name}</h4>
+                <p class="skill-desc">{lang.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Frameworks -->
+      <div>
+        <h3 class="category-header">
+          <span class="category-dot category-dot--secondary"></span> Frameworks & Runtime
+        </h3>
+        <div class="expertise__grid expertise__grid--6">
+          {
+            frameworks.map((item) => (
+              <div>
+                <h4 class="skill-name">{item.name}</h4>
+                <p class="skill-desc">{item.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Data & ML -->
+      <div>
+        <h3 class="category-header">
+          <span class="category-dot category-dot--primary"></span> Data & Machine Learning
+        </h3>
+        <div class="expertise__grid expertise__grid--6">
+          {
+            dataAndML.map((item) => (
+              <div>
+                <h4 class="skill-name">{item.name}</h4>
+                <p class="skill-desc">{item.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Infrastructure -->
+      <div>
+        <h3 class="category-header">
+          <span class="category-dot category-dot--secondary"></span> Infrastructure & DevOps
+        </h3>
+        <div class="expertise__grid expertise__grid--6">
+          {
+            infrastructure.map((item) => (
+              <div>
+                <h4 class="skill-name">{item.name}</h4>
+                <p class="skill-desc">{item.desc}</p>
+              </div>
+            ))
+          }
+        </div>
+      </div>
+
+      <!-- Workflow Tools -->
+      <div class="expertise__tools">
+        <h3 class="category-header" style="margin-bottom: 1.5rem;">
+          Tools & Integrations
+        </h3>
+        <div class="expertise__tools-list">
+          {tools.map((tool) => <span class="tool-tag">{tool}</span>)}
+        </div>
+      </div>
+    </div>
+  </div>
+</section>
+
+<style>
+  .expertise {
+    background-color: var(--surface-container-low);
+    padding: 8rem 2rem;
+  }
+
+  .expertise__groups {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .expertise__grid {
+    display: grid;
+    grid-template-columns: repeat(2, 1fr);
+    gap: 2.5rem 2rem;
+  }
+
+  .expertise__tools {
+    background: var(--surface-container-high);
+    padding: 2rem;
+    border-radius: 0.25rem;
+    border-left: 4px solid var(--primary);
+  }
+
+  .expertise__tools-list {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 1rem;
+  }
+
+  @media (min-width: 768px) {
+    .expertise__grid {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+
+  @media (min-width: 1024px) {
+    .expertise__grid--6 {
+      grid-template-columns: repeat(6, 1fr);
+    }
+    .expertise__grid--5 {
+      grid-template-columns: repeat(5, 1fr);
+    }
+    .expertise__grid--4 {
+      grid-template-columns: repeat(4, 1fr);
+    }
+  }
+</style>

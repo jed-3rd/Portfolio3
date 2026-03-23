@@ -1,0 +1,167 @@
+---
+const experiences = [
+  {
+    period: "2024 — PRESENT",
+    title: "Lead Ecommerce Solutions Engineer — Leanin' Tree Inc.",
+    description:
+      "Lead the design and implementation of a multi-platform ecommerce ecosystem, specializing in Shopify development, automated ERP integration, and high-impact cost-saving migrations for diverse stakeholders.",
+    tags: ["TypeScript", "Go", "Shopify Liquid", "Python", "React Router / Remix"],
+    current: true,
+  },
+  {
+    period: "2021 — 2023",
+    title: "Software Engineer — Pink Summit LLC",
+    description:
+      "Split across two engineering teams - Spearheaded migration of a legacy Java Applet platform to Angular, modernizing user experiences, and built Python-based Atlassian integrations under government security requirements, handling sensitive data workflows in compliance-controlled AWS environments.",
+    tags: ["Angular", "Python", "Java", "TypeScript", "AWS"],
+    current: false,
+    opacity: 0.6,
+  },
+  {
+    period: "2018 — 2021",
+    title: "Software Engineer — RxD Software LLC",
+    description:
+      "Built bespoke web applications and backend services for a diverse client portfolio. Shipped production systems utilizing a wide range of technologies to meet unique project requirements.",
+    tags: ["Python", "Go", "TypeScript", "React", "AWS"],
+    current: false,
+    opacity: 0.4,
+  },
+  {
+    period: "2014 — 2018",
+    title: "B.A. Computer Science — University of Colorado Boulder",
+    description:
+      "Minor in Leadership. Studied software engineering, algorithms, and systems design while developing foundational skills in cross-functional collaboration and technical leadership.",
+    tags: ["Design Database Systems", "Human Computer Interaction", "Intro to AI", "Algorithms"],
+    current: false,
+    opacity: 0.2,
+  },
+];
+---
+
+<section class="experience" id="experience" aria-label="Work experience">
+  <div class="section-container">
+    <div class="section-header">
+      <span class="section-slash">/</span>
+      <h2 class="section-title">Experience</h2>
+    </div>
+
+    <div class="experience__list">
+      {
+        experiences.map((exp) => (
+          <div
+            class={`experience__item ${exp.current ? "experience__item--current" : "experience__item--past"}`}
+            style={!exp.current ? `opacity: ${exp.opacity};` : undefined}
+          >
+            <div class={`experience__line ${exp.current ? "experience__line--active" : ""}`} />
+            <div class="experience__grid">
+              <div class="experience__period">
+                <p class="experience__date">{exp.period}</p>
+              </div>
+              <div class="experience__details">
+                <h3 class="experience__title">{exp.title}</h3>
+                <p class="experience__desc">{exp.description}</p>
+                <div class="experience__tags">
+                  {exp.tags.map((tag) => (
+                    <span class="experience__badge">{tag}</span>
+                  ))}
+                </div>
+              </div>
+            </div>
+          </div>
+        ))
+      }
+    </div>
+  </div>
+</section>
+
+<style>
+  .experience {
+    padding: 8rem 2rem;
+    background-color: var(--surface-container-low);
+  }
+
+  .experience__list {
+    display: flex;
+    flex-direction: column;
+    gap: 6rem;
+  }
+
+  .experience__item {
+    position: relative;
+    padding-left: 3rem;
+    transition: opacity 0.3s ease;
+  }
+
+  .experience__item--past:hover {
+    opacity: 1 !important;
+  }
+
+  .experience__line {
+    position: absolute;
+    left: 0;
+    top: 0;
+    bottom: 0;
+    width: 2px;
+    background: var(--outline-variant-30);
+  }
+
+  .experience__line--active {
+    background: var(--primary);
+  }
+
+  .experience__grid {
+    display: grid;
+    gap: 2rem;
+  }
+
+  .experience__date {
+    font-family: var(--font-label);
+    color: var(--tertiary-60);
+    font-size: 0.75rem;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+  }
+
+  .experience__details {
+    display: flex;
+    flex-direction: column;
+    gap: 1rem;
+  }
+
+  .experience__title {
+    font-size: 1.5rem;
+    font-family: var(--font-headline);
+    font-weight: 700;
+    color: var(--on-background);
+  }
+
+  .experience__desc {
+    color: var(--tertiary);
+    line-height: 1.75;
+  }
+
+  .experience__tags {
+    display: flex;
+    flex-wrap: wrap;
+    gap: 0.5rem;
+    padding-top: 0.5rem;
+  }
+
+  .experience__badge {
+    font-size: 10px;
+    font-family: var(--font-label);
+    text-transform: uppercase;
+    letter-spacing: 0.1em;
+    color: var(--primary);
+    border: 1px solid var(--primary-20);
+    background: var(--primary-5);
+    padding: 0.25rem 0.75rem;
+    border-radius: 0.125rem;
+  }
+
+  @media (min-width: 768px) {
+    .experience__grid {
+      grid-template-columns: 1fr 3fr;
+    }
+  }
+</style>
