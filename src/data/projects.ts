@@ -4,7 +4,7 @@ export const projects = [
     bgIcon: "trending_up",
     title: "AlgoTrader",
     description:
-      "A production-grade automated US equity day-trading system. Screens the market pre-open, scores candidates with a LightGBM ML pipeline and FinBERT sentiment analysis, then executes 14 intraday algorithms through Alpaca's brokerage API, fully autonomous during market hours.",
+      "A fully autonomous algorithmic trading platform designed to execute complex equity strategies without human intervention. The system identifies high-potential stocks daily, analyzes market sentiment, and manages live capital with professional-grade risk controls to ensure consistent performance during market hours.",
     challenge:
       "Building a zero-intervention trading system that manages real capital across three float tiers, with robust risk controls, 4x PDT margin utilization, and reliable EOD liquidation, all on a cost-efficient serverless infrastructure.",
     solution:
@@ -22,7 +22,7 @@ export const projects = [
     bgIcon: "security",
     title: "SpectraSeal",
     description:
-      "A high-performance forensic watermarking ecosystem that embeds traceable, near-invisible identifiers into images and video streams. Uses transform-domain steganography to survive screenshots, re-compression, and analog-hole attacks.",
+      "An advanced digital security ecosystem that protects media assets using invisible forensic watermarking. By embedding traceable data directly into the fabric of images and video, it allows companies to identify the source of unauthorized leaks even if the content has been screenshotted, compressed, or re-recorded.",
     challenge:
       "Traditional watermarks (visible overlays, LSB pixel-flipping) are trivially defeated by cropping, JPEG re-compression, or simply screenshotting the content, creating a new file with entirely different pixel values and potential geometric distortion.",
     solution:
@@ -40,15 +40,15 @@ export const projects = [
     bgIcon: "design_services",
     title: "Chassis UI",
     description:
-      "A framework-agnostic design system bridge that solves design system lock-in. Swap an entire visual identity — Material 3, Shopify Polaris, IBM Carbon — by changing a single CSS import, without touching component logic.",
+      "A versatile, framework-agnostic UI library that eliminates 'vendor lock-in' for design systems. It allows engineering teams to share a single library of 32+ components across different web frameworks—like React, Svelte, and Angular—while instantly switching between 12 distinct visual identities (such as Shopify Polaris or Material Design) via simple CSS tokens.",
     challenge:
-      "Design systems couple visual identity to component logic, locking teams into a single ecosystem. Migrating between systems (e.g., Polaris to Carbon) means rewriting components, not just restyling them, and CSS leaking between Shadow DOM boundaries breaks encapsulation at scale.",
+      "Design systems usually couple visual identity to specific framework code, forcing teams to rewrite their entire component library if they want to change their look or switch from React to Svelte. Additionally, preventing CSS leakage in complex enterprise apps is difficult without breaking customization capabilities.",
     solution:
-      "Headless Web Components built with Lit expose CSS Shadow Parts for safe external styling, wired to a global token schema via CSS Custom Properties. Style Dictionary transforms raw design tokens into system-specific variable files — theme-swapping is a single CSS import with <100ms style recalculation. Framework wrappers for React, Vue, Svelte, and Angular are auto-generated via @lit/react.",
+      "Built a 'Design System Bridge' using Lit-based Web Components that leverage Shadow DOM for perfect encapsulation. The system features a library of 32 components across 6 categories, 12 pre-built themes, and a double-fallback token pattern. It includes auto-generated framework wrappers for React, Angular, Svelte, and Astro, ensuring a 'write once, use everywhere' workflow.",
     strategy:
-      "Lit was chosen over heavier frameworks for its minimal runtime footprint, Web Components need lifecycle management, not a virtual DOM. PostCSS and CSS Modules handle token processing at build time, keeping runtime cost near zero. Style Dictionary provides the single-source-of-truth pipeline from design tokens to platform code, making new system support (Fluent, Atlassian) a CSS mapping file with no JS changes. Astro powers the docs site and Storybook provides isolated component testing, both leveraging the same Web Components directly.",
-    tags: ["Lit", "Web Components", "PostCSS", "Style Dictionary", "Astro", "Storybook"],
-    link: "https://jed.tonti-denbow.com/chassisui",
+      "Lit was chosen for its minimal runtime footprint and native Web Component support, avoiding the overhead of a virtual DOM. Style Dictionary serves as the single source of truth, transforming JSON design tokens into CSS Custom Properties for sub-100ms theme switching. The architecture uses a monorepo with Turborepo and npm workspaces to orchestrate a complex build pipeline: processing tokens and themes first, then building the core components, and finally generating type-safe framework wrappers.",
+    tags: ["Lit", "Web Components", "Style Dictionary", "Astro", "Turborepo", "TypeScript"],
+    link: "https://chassis-ui.online",
     linkType: "site",
     gradientDir: "to bottom left",
     iconRotation: "45deg",
