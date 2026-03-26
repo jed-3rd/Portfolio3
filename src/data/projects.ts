@@ -30,7 +30,7 @@ export const projects = [
     strategy:
       "Rust was chosen for its zero-cost abstractions and SIMD intrinsics (AVX2/NEON), critical for processing frequency blocks in parallel at <15ms image latency and real-time 60fps video. FFmpeg bindings handle segment encoding without reinventing codec logic. Reed-Solomon ECC and majority voting across blocks ensure blind extraction survives 50% JPEG quality, 720p→480p downscaling, and 15° rotation. The zero-copy ownership model eliminates unnecessary allocations in the media buffer pipeline.",
     tags: ["Rust", "FFmpeg", "SIMD", "DCT/FFT"],
-    link: "https://jed.tonti-denbow.com/spectraseal",
+    link: "https://jed-3rd.github.io/SpectraSeal-Demo/",
     linkType: "site",
     gradientDir: "to bottom right",
     iconRotation: "-12deg",
@@ -48,7 +48,7 @@ export const projects = [
     strategy:
       "Lit was chosen for its minimal runtime footprint and native Web Component support, avoiding the overhead of a virtual DOM. Style Dictionary serves as the single source of truth, transforming JSON design tokens into CSS Custom Properties for sub-100ms theme switching. The architecture uses a monorepo with Turborepo and npm workspaces to orchestrate a complex build pipeline: processing tokens and themes first, then building the core components, and finally generating type-safe framework wrappers.",
     tags: ["Lit", "Web Components", "Style Dictionary", "Astro", "Turborepo", "TypeScript"],
-    link: "https://chassis-ui.online",
+    link: "https://jed-3rd.github.io/ChassisUI/",
     linkType: "site",
     gradientDir: "to bottom left",
     iconRotation: "45deg",
